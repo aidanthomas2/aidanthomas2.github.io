@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Aidan&#39;s Sports Blog</title>
+<link>https://your-website-url.example.com/</link>
+<atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
+<description>A place for sports data nerds</description>
+<generator>quarto-1.8.25</generator>
+<lastBuildDate>Tue, 04 Nov 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Is Anthony Edwards as good of a shooter as we think? The difference between perception and reality.</title>
+  <dc:creator>Aidan Thomas</dc:creator>
+  <link>https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Anthony Edwards is on of the rising stars in the NBA, some even consider him as the next face of the league.</p>
+
+
+
+ ]]></description>
+  <category>nba</category>
+  <category>basketball</category>
+  <category>timberwolves</category>
+  <guid>https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/</guid>
+  <pubDate>Tue, 04 Nov 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/image.png" medium="image" type="image/png"/>
+</item>
+</channel>
+</rss>
