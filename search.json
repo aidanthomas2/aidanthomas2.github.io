@@ -11,7 +11,7 @@
     "href": "posts/is-anthony-edwards-a-good-shooter/index.html",
     "title": "Is Anthony Edwards as good of a shooter as we think? The difference between perception and reality.",
     "section": "",
-    "text": "Anthony Edwards is on of the rising stars in the NBA, some even consider him as the next face of the league."
+    "text": "Anthony Edwards is on of the rising stars in the NBA, some even consider him as the next face of the league.\n\n\nCode\nlibrary(tidyverse)"
   },
   {
     "objectID": "index.html",
