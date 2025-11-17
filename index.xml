@@ -10,7 +10,7 @@
 <atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A place for sports data nerds</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Tue, 04 Nov 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 17 Nov 2025 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Is Anthony Edwards as good of a shooter as we think? The difference between perception and reality.</title>
   <dc:creator>Aidan Thomas</dc:creator>
@@ -1041,9 +1041,11 @@ font-style: inherit;">"plot"</span></span>
   <category>nba</category>
   <category>basketball</category>
   <category>timberwolves</category>
+  <category>minnesota</category>
+  <category>anthonyedwards</category>
   <guid>https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/</guid>
-  <pubDate>Tue, 04 Nov 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/image.png" medium="image" type="image/png"/>
+  <pubDate>Mon, 17 Nov 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/is-anthony-edwards-a-good-shooter/antedwards.png" medium="image" type="image/png"/>
 </item>
 </channel>
 </rss>
