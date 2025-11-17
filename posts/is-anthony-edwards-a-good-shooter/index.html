@@ -195,13 +195,215 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Anthony Edwards is on of the rising stars in the NBA, some even consider him as the next face of the league.</p>
+<p>Anthony Edwards has emerged as one of the NBA’s most electrifying young stars, captivating audiences with his explosive athleticism and fearless shot-making. But beneath the highlight-reel dunks and clutch performances lies a question that deserves closer examination: Is his shooting actually as elite as the narrative suggests?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>trueshooting <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/trueshooting.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> trueshooting <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="st">`</span><span class="at">TSPCT▼</span><span class="st">`</span> <span class="sc">&gt;</span> .<span class="dv">57</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(G <span class="sc">&gt;</span> <span class="dv">70</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Pos <span class="sc">==</span> <span class="st">"SG"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>ant <span class="ot">&lt;-</span> players <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    Player <span class="sc">==</span> <span class="st">"Anthony Edwards"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">data=</span>players, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">TSPCT▼</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">TSPCT▼</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>ant, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Player, <span class="st">`</span><span class="at">TSPCT▼</span><span class="st">`</span>), <span class="at">weight=</span><span class="st">`</span><span class="at">TSPCT▼</span><span class="st">`</span>), <span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Players"</span>, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"True Shooting Percentage"</span>, </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Anthony Edwards was good, but others were able to outlast him"</span>, </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Anthony Edwards ranked 13th last season in terms of true shooting percentage among shooting guards that played at least 70 regular season games."</span>, </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Basketball Reference | By Aidan Thomas"</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>), </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>When we compare Edwards’ true shooting percentage to other elite young scorers in similar roles, a surprising pattern emerges. Despite carrying comparable offensive loads, Edwards ranked surprisingly low last season (13th out of the top 20 shooting guards in terms of true shooting percentage).</p>
+<p>What makes this gap particularly noteworthy is that Edwards often takes similarly difficult shots compared to his counterparts on this list. He creates off the dribble, attacks closeouts, and launches deep threes with defenders draped on him. The problem isn’t shot difficulty, it’s conversion rate. While players like Zach Lavine and Tyler Herro have refined their games to balance volume with accuracy, Edwards hasn’t yet found that equilibrium. He’s certainly a good scorer, but the numbers suggest he’s not yet operating at the truly elite efficiency level we might assume from watching his highlights.</p>
+<p>Perhaps the most telling story comes from tracking Edwards’ development over his career. Has he been steadily improving his efficiency, or has his reputation as a “superstar shooter” been built primarily on increased volume rather than refined accuracy?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>antfieldgoal <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/antfieldgoal.csv"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>zach <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/zach.csv"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>shai <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/shai.csv"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>jalen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/jalen.csv"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>donovan <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/donovan.csv"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/average.csv"</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data=</span>antfieldgoal, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT), <span class="at">color=</span><span class="st">"green"</span>) <span class="sc">+</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>zach, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT), <span class="at">color=</span><span class="st">"purple"</span>) <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>shai, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT), <span class="at">color=</span><span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>jalen, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT), <span class="at">color=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>donovan, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>average, <span class="fu">aes</span>(<span class="at">x=</span>Season, <span class="at">y=</span>eFGPCT)) <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(.<span class="dv">4</span>, .<span class="dv">65</span>)) <span class="sc">+</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">2023</span>, <span class="at">y=</span>.<span class="dv">51</span>, <span class="at">label=</span><span class="st">"Anthony Edwards"</span>), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">2022</span>, <span class="at">y=</span>.<span class="dv">585</span>, <span class="at">label=</span><span class="st">"Donovan Mitchell"</span>), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">2023.5</span>, <span class="at">y=</span>.<span class="dv">60</span>, <span class="at">label=</span><span class="st">"Zach Lavine"</span>), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">2021</span>, <span class="at">y=</span>.<span class="dv">48</span>, <span class="at">label=</span><span class="st">"Shai Gilgeous-Alexander"</span>), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">2023.75</span>, <span class="at">y=</span>.<span class="dv">56</span>, <span class="at">label=</span><span class="st">"Jalen Brunson"</span>), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fl">2020.3</span>, <span class="at">y=</span>.<span class="dv">545</span>, <span class="at">label=</span><span class="st">"AVERAGE"</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Season"</span>, </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Effective Field Goal Percentage"</span>, </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Anthony Edwards is not as efficient as other elite shooting guards"</span>, </span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Anthony Edwards has struggled to shoot the ball efficiently in his career, staying below the league average until last year"</span>, </span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Basketball Reference | By Aidan Thomas"</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>), </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The league average for effective field goal percentage (a basketball statistic that adjusts for the value of 3-point shots to give a more accurate measure of shooting efficiency than traditional field goal percentage) over the last five seasons has consistently been around 53-54%. Edwards was routinely below this mark for the majority of his career up until last year.</p>
+<p>Notable names like Jalen Bruson, Shai Gilgeous-Alexander, Zach Lavine, and Donovan Mitchell have easily been above league average for the majority of their careers, while Edwards has been the opposite.</p>
+<p>The narrative of Edwards as a rapidly developing superstar shooter appears premature. He’s still improving, but he’s doing so incrementally, not exponentially. The perception of elite shooting seems to be based more on his confidence, his volume, and his ability to hit difficult shots in big moments than on consistent, efficient scoring night after night.</p>
+<p>The final piece of the puzzle comes from examining where Edwards takes his shots and how efficiently he converts from each zone compared to league averages.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>zones <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/zones.csv"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>antzones <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Desktop/COLLEGE STUFF/SPMC 350/aidanthomas2.github.io/posts/is-anthony-edwards-a-good-shooter/antzones.csv"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>antzonez <span class="ot">&lt;-</span> antzones <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team) <span class="sc">|&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalTwoP =</span> <span class="fu">sum</span>(TwoP),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalZerotoThree =</span> <span class="fu">sum</span>(ZerotoThree),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalThreetoTen =</span> <span class="fu">sum</span>(ThreetoTen),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalTentoSixteen =</span> <span class="fu">sum</span>(TentoSixteen),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalSixteentoThreeP =</span> <span class="fu">sum</span>(SixteentoThreeP),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalThreeP =</span> <span class="fu">sum</span>(ThreeP)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>antzonezlong <span class="ot">&lt;-</span> antzonez <span class="sc">|&gt;</span> </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">"Total"</span>), </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to=</span><span class="st">"Type"</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to=</span><span class="st">"ZonePCT"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>zonez <span class="ot">&lt;-</span> zones <span class="sc">|&gt;</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team) <span class="sc">|&gt;</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalTwoP =</span> <span class="fu">sum</span>(TwoP),</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalZerotoThree =</span> <span class="fu">sum</span>(ZerotoThree),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalThreetoTen =</span> <span class="fu">sum</span>(ThreetoTen),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalTentoSixteen =</span> <span class="fu">sum</span>(TentoSixteen),</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalSixteentoThreeP =</span> <span class="fu">sum</span>(SixteentoThreeP),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalThreeP =</span> <span class="fu">sum</span>(ThreeP)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>zonezlong <span class="ot">&lt;-</span> zonez <span class="sc">|&gt;</span> </span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols=</span><span class="fu">starts_with</span>(<span class="st">"Total"</span>), </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to=</span><span class="st">"Type"</span>, </span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to=</span><span class="st">"ZonePCT"</span>)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>zonezlong, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Team, ZonePCT), <span class="at">weight=</span>ZonePCT, <span class="at">fill=</span>Type)) <span class="sc">+</span> </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data=</span>antzonezlong, <span class="fu">aes</span>(<span class="at">x=</span>Team, <span class="at">weight=</span>ZonePCT, <span class="at">fill=</span>Type)) <span class="sc">+</span> </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Anthony Edwards/Teams"</span>, </span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Zone Percentage"</span>, </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Anthony Edwards is below average in terms of percentage from certain zones on the court"</span>, </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"He is around average when getting to the rim, but struggles once he gets 16+ feet away"</span>, </span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Basketball Reference | By Aidan Thomas"</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>), </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>), </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>When it comes to getting to the rim and shooting close range, Edwards is right around average comapred to the percentage of most teams players combined from last season. Quite impressive.</p>
+<p>Where it really starts to show is when Edwards gets to 16+ feet away from the basket. His averages compared to the league at large are nowhere near each other.</p>
+<p>This shot chart tells us that Edwards hasn’t yet mastered the modern scorer’s calculus: maximizing attempts from high-value zones while minimizing volume from low-efficiency areas. He plays with a scorer’s mentality but hasn’t yet developed a scorer’s spatial intelligence. The result is a player who looks like an elite shooter because he makes difficult shots, but whose overall efficiency suffers because he takes too many difficult shots in the first place.</p>
+<p>Anthony Edwards is undeniably a star. His confidence, his clutch gene, and his ability to create something from nothing make him one of the league’s most exciting players. But when we separate perception from reality, the data suggests his shooting isn’t yet at the elite level the narrative implies.</p>
+<p>None of this diminishes Edwards’ impact or potential. At just 24 years old, he has plenty of time to refine his game. The question is whether he’ll develop the efficiency and shot selection discipline to match his already-elite volume and reputation.</p>
 
 
 
