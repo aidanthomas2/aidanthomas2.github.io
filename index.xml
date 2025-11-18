@@ -21,7 +21,7 @@
 
 
 
-<p>Anthony Edwards has emerged as one of the NBA’s most electrifying young stars, captivating audiences with his explosive athleticism and fearless shot-making. But beneath the highlight-reel dunks and clutch performances lies a question that deserves closer examination: Is his shooting actually as elite as the narrative suggests?</p>
+<p>Anthony Edwards has emerged as one of the NBA’s most electrifying young stars, captivating audiences with his explosive athleticism and fearless shot making. But beneath the highlight reel dunks and clutch performances lies a question that deserves closer examination: Is his shooting actually as elite as the narrative suggests?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -182,7 +182,7 @@ font-style: inherit;">"True Shooting Percentage"</span>, </span>
 background-color: null;
 font-style: inherit;">title=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Anthony Edwards was good, but others were able to outlast him"</span>, </span>
+font-style: inherit;">"Anthony Edwards was effective scoring the ball, but others were better"</span>, </span>
 <span id="cb1-25">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
@@ -255,9 +255,9 @@ font-style: inherit;">"plot"</span></span>
 </div>
 </div>
 </div>
-<p>When we compare Edwards’ true shooting percentage to other elite young scorers in similar roles, a surprising pattern emerges. Despite carrying comparable offensive loads, Edwards ranked surprisingly low last season (13th out of the top 20 shooting guards in terms of true shooting percentage).</p>
-<p>What makes this gap particularly noteworthy is that Edwards often takes similarly difficult shots compared to his counterparts on this list. He creates off the dribble, attacks closeouts, and launches deep threes with defenders draped on him. The problem isn’t shot difficulty, it’s conversion rate. While players like Zach Lavine and Tyler Herro have refined their games to balance volume with accuracy, Edwards hasn’t yet found that equilibrium. He’s certainly a good scorer, but the numbers suggest he’s not yet operating at the truly elite efficiency level we might assume from watching his highlights.</p>
-<p>Perhaps the most telling story comes from tracking Edwards’ development over his career. Has he been steadily improving his efficiency, or has his reputation as a “superstar shooter” been built primarily on increased volume rather than refined accuracy?</p>
+<p>When we compare Edwards’ true shooting percentage (a basketball statistic that measures scoring efficiency by accounting for two-point field goals, three-point field goals, and free throws), to other shooting guards in similar roles, a surprising pattern emerges. Despite carrying comparable offensive loads, Edwards ranked surprisingly low last season (13th out of the top 20 shooting guards in terms of true shooting percentage).</p>
+<p>What makes this gap particularly noteworthy is that Edwards often takes similarly difficult shots compared to his counterparts on this list. He creates off the dribble, attacks the basket, and launches deep threes with defenders draped on him. The problem isn’t shot difficulty, it’s conversion rate. He’s certainly a good scorer, but the numbers suggest he’s not yet operating at the truly elite efficiency level we might assume from watching his game.</p>
+<p>Perhaps the most telling story comes from tracking Edwards’ development over his career. Has he been steadily improving his efficiency, or has his reputation as a “superstar” been built primarily on increased volume rather than refined accuracy?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -642,7 +642,7 @@ font-style: inherit;">"Anthony Edwards is not as efficient as other elite shooti
 background-color: null;
 font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Anthony Edwards has struggled to shoot the ball efficiently in his career, staying below the league average until last year"</span>, </span>
+font-style: inherit;">"Anthony Edwards has struggled to shoot the ball efficiently in his career, staying below the league average up until last season."</span>, </span>
 <span id="cb2-51">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
@@ -710,9 +710,9 @@ font-style: inherit;">"plot"</span></span>
 </div>
 </div>
 </div>
-<p>The league average for effective field goal percentage (a basketball statistic that adjusts for the value of 3-point shots to give a more accurate measure of shooting efficiency than traditional field goal percentage) over the last five seasons has consistently been around 53-54%. Edwards was routinely below this mark for the majority of his career up until last year.</p>
-<p>Notable names like Jalen Bruson, Shai Gilgeous-Alexander, Zach Lavine, and Donovan Mitchell have easily been above league average for the majority of their careers, while Edwards has been the opposite.</p>
-<p>The narrative of Edwards as a rapidly developing superstar shooter appears premature. He’s still improving, but he’s doing so incrementally, not exponentially. The perception of elite shooting seems to be based more on his confidence, his volume, and his ability to hit difficult shots in big moments than on consistent, efficient scoring night after night.</p>
+<p>The league average for effective field goal percentage (a basketball statistic that adjusts for the value of 3-point shots to give a more accurate measure of shooting efficiency than traditional field goal percentage) over the last five seasons has consistently been around 53-54%. Edwards has been routinely below this mark for the majority of his career up until last season.</p>
+<p>Notable names like Jalen Brunson, Shai Gilgeous-Alexander, Zach Lavine, and Donovan Mitchell have easily been above league average for the majority of their careers, while Edwards has been the opposite.</p>
+<p>The narrative of Edwards as a rapidly developing shooter appears premature. He’s still improving, but he’s doing so incrementally, not exponentially. The perception of elite shooting seems to be based more on his confidence, his volume, and his ability to hit difficult shots in big moments than on consistent, efficient scoring night after night.</p>
 <p>The final piece of the puzzle comes from examining where Edwards takes his shots and how efficiently he converts from each zone compared to league averages.</p>
 <div class="cell">
 <details class="code-fold">
@@ -961,7 +961,7 @@ font-style: inherit;">"Anthony Edwards is below average in terms of percentage f
 background-color: null;
 font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"He is around average when getting to the rim, but struggles once he gets 16+ feet away"</span>, </span>
+font-style: inherit;">"He is around average when getting to the rim, but struggles once he gets 16+ feet away."</span>, </span>
 <span id="cb3-56">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
@@ -1029,11 +1029,11 @@ font-style: inherit;">"plot"</span></span>
 </div>
 </div>
 </div>
-<p>When it comes to getting to the rim and shooting close range, Edwards is right around average comapred to the percentage of most teams players combined from last season. Quite impressive.</p>
+<p>When it comes to getting to the rim and shooting close range, Edwards is right around average compared to the percentage of each teams players combined from last season. Quite impressive.</p>
 <p>Where it really starts to show is when Edwards gets to 16+ feet away from the basket. His averages compared to the league at large are nowhere near each other.</p>
-<p>This shot chart tells us that Edwards hasn’t yet mastered the modern scorer’s calculus: maximizing attempts from high-value zones while minimizing volume from low-efficiency areas. He plays with a scorer’s mentality but hasn’t yet developed a scorer’s spatial intelligence. The result is a player who looks like an elite shooter because he makes difficult shots, but whose overall efficiency suffers because he takes too many difficult shots in the first place.</p>
-<p>Anthony Edwards is undeniably a star. His confidence, his clutch gene, and his ability to create something from nothing make him one of the league’s most exciting players. But when we separate perception from reality, the data suggests his shooting isn’t yet at the elite level the narrative implies.</p>
-<p>None of this diminishes Edwards’ impact or potential. At just 24 years old, he has plenty of time to refine his game. The question is whether he’ll develop the efficiency and shot selection discipline to match his already-elite volume and reputation.</p>
+<p>The result is a paradox: Edwards looks like a complete offensive weapon because he attempts shots from everywhere, but the numbers show he’d be more effective concentrating his firepower closer to the rim.</p>
+<p>In conclusion, Anthony Edwards is undeniably a star. His confidence, his clutch gene, and his ability to create something from nothing make him one of the league’s most exciting players. But when we separate perception from reality, the data suggests his shooting isn’t yet at the elite level the narrative implies.</p>
+<p>None of this diminishes Edwards’ impact or potential. At just 24 years old, he has plenty of time to refine his game. The question is whether he’ll develop the efficiency and shot selection discipline to match his already elite volume and reputation.</p>
 
 
 
