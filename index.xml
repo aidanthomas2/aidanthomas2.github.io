@@ -10,7 +10,31 @@
 <atom:link href="https://your-website-url.example.com/index.xml" rel="self" type="application/rss+xml"/>
 <description>A place for sports data nerds</description>
 <generator>quarto-1.8.25</generator>
-<lastBuildDate>Mon, 17 Nov 2025 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 09 Dec 2025 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Has Jalen Johnson actually become an elite all-around player, or is he just getting more opportunities?</title>
+  <dc:creator>Aidan Thomas</dc:creator>
+  <link>https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Hello</p>
+
+
+
+ ]]></description>
+  <category>nba</category>
+  <category>basketball</category>
+  <category>hawks</category>
+  <category>atlanta</category>
+  <category>jalenjohnson</category>
+  <guid>https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/</guid>
+  <pubDate>Tue, 09 Dec 2025 06:00:00 GMT</pubDate>
+  <media:content url="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/anthonyedwards.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Is Anthony Edwards as good of a shooter as we think? The difference between perception and reality.</title>
   <dc:creator>Aidan Thomas</dc:creator>
