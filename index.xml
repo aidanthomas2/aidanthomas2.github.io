@@ -21,7 +21,7 @@
 
 
 
-<p>Jalen Johnson</p>
+<p>The Atlanta Hawks’ Jalen Johnson has emerged as one of the NBA’s most intriguing young forwards, posting career-best numbers that have turned heads across the league. But as his counting stats continue to climb, a critical question looms: Is Johnson truly developing into an elite player, or is he simply the beneficiary of increased opportunities in Atlanta’s system?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -421,6 +421,8 @@ font-style: inherit;">"plot"</span></span>
 </div>
 </div>
 </div>
+<p>The numbers tell a compelling story of genuine growth. When we examine Johnson’s per-36-minute statistics across his career, we see more than just volume increases, we see efficiency gains that suggest real skill development. Per 36 Minutes in the NBA refers to a statistic that projects a player’s counting stats (like points, rebounds, and assists) over the course of a 36-minute game. All three of these statistics for Johnson per 36 minutes have all trended upward, especially him scoring the ball.</p>
+<p>When comparing him to other top prospects from his draft class (Evan Mobley, Scottie Barnes, Josh Giddey, Jonathan Kuminga), Johnson is outperforming all of them this season. While they may have been scoring more to start their careers, Johnson has continued to get better and surpass them this season.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -831,6 +833,7 @@ font-style: inherit;">"plot"</span></span>
 </div>
 </div>
 </div>
+<p>The efficiency metrics paint an even more interesting picture. Johnson’s true shooting percentage (a basketball statistic that measures scoring efficiency by accounting for two-point field goals, three-point field goals, and free throws) has improved alongside his expanded role, a rare feat that separates stars from volume scorers. Many players see their efficiency crater when given more touches; Johnson has maintained or improved his shooting efficiency while dramatically increasing his offensive involvement. His effective field goal percentage (a basketball statistic that adjusts for the value of 3-point shots to give a more accurate measure of shooting efficiency than traditional field goal percentage) tells a similar story, indicating that he’s not just taking more shots, he’s taking better ones.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -870,77 +873,34 @@ background-color: null;
 font-style: inherit;">20</span></span>
 <span id="cb3-11">  )</span>
 <span id="cb3-12"></span>
-<span id="cb3-13"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> </span>
-<span id="cb3-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data=</span>newnbausagerate, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>USGPCT, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>PER)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb3-15">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data=</span>newnbausagerate, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x=</span>USGPCT, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y=</span>PER), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method=</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lm"</span>)</span></code></pre></div></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">filterednbausagerate <span class="ot" style="color: #003B4F;
+<span id="cb3-13">filterednbausagerate <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> newnbausagerate <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|&gt;</span></span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+<span id="cb3-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">filter</span>(</span>
-<span id="cb4-3">    PER <span class="sc" style="color: #5E5E5E;
+<span id="cb3-15">    PER <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">23.3</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&amp;</span></span>
-<span id="cb4-4">      USGPCT <span class="sc" style="color: #5E5E5E;
+<span id="cb3-16">      USGPCT <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">26.0</span></span>
-<span id="cb4-5">  )</span>
-<span id="cb4-6"></span>
-<span id="cb4-7"><span class="fu" style="color: #4758AB;
+<span id="cb3-17">  )</span>
+<span id="cb3-18"></span>
+<span id="cb3-19"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb4-8">  <span class="fu" style="color: #4758AB;
+<span id="cb3-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -957,7 +917,7 @@ background-color: null;
 font-style: inherit;">"black"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-9">  <span class="fu" style="color: #4758AB;
+<span id="cb3-21">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -974,7 +934,7 @@ background-color: null;
 font-style: inherit;">"red"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-10">  <span class="fu" style="color: #4758AB;
+<span id="cb3-22">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -991,7 +951,7 @@ background-color: null;
 font-style: inherit;">"lm"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-11">  <span class="fu" style="color: #4758AB;
+<span id="cb3-23">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">scale_y_continuous</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1004,7 +964,7 @@ background-color: null;
 font-style: inherit;">40.0</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-12">  <span class="fu" style="color: #4758AB;
+<span id="cb3-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_text_repel</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1019,46 +979,46 @@ background-color: null;
 font-style: inherit;">label=</span>Player)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-13">  <span class="fu" style="color: #4758AB;
+<span id="cb3-25">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(</span>
-<span id="cb4-14">    <span class="at" style="color: #657422;
+<span id="cb3-26">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Usage Percentage"</span>, </span>
-<span id="cb4-15">    <span class="at" style="color: #657422;
+<span id="cb3-27">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Player Efficiency Rating"</span>, </span>
-<span id="cb4-16">    <span class="at" style="color: #657422;
+<span id="cb3-28">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Jalen Johnson is in some elite company"</span>, </span>
-<span id="cb4-17">    <span class="at" style="color: #657422;
+<span id="cb3-29">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">subtitle=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Jalen Johnson has been as efficient as some of the league's best this season."</span>, </span>
-<span id="cb4-18">    <span class="at" style="color: #657422;
+<span id="cb3-30">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">caption=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Source: Basketball Reference | By Aidan Thomas"</span></span>
-<span id="cb4-19">    ) <span class="sc" style="color: #5E5E5E;
+<span id="cb3-31">    ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb4-20">  <span class="fu" style="color: #4758AB;
+<span id="cb3-32">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb4-21">  <span class="fu" style="color: #4758AB;
+<span id="cb3-33">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb4-22">    <span class="at" style="color: #657422;
+<span id="cb3-34">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1071,7 +1031,7 @@ background-color: null;
 font-style: inherit;">face =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"bold"</span>),</span>
-<span id="cb4-23">    <span class="at" style="color: #657422;
+<span id="cb3-35">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1080,7 +1040,7 @@ background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>), </span>
-<span id="cb4-24">    <span class="at" style="color: #657422;
+<span id="cb3-36">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1089,26 +1049,32 @@ background-color: null;
 font-style: inherit;">size=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">12</span>), </span>
-<span id="cb4-25">    <span class="at" style="color: #657422;
+<span id="cb3-37">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">element_blank</span>(),</span>
-<span id="cb4-26">    <span class="at" style="color: #657422;
+<span id="cb3-38">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.title.position =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"plot"</span></span>
-<span id="cb4-27">  )</span></code></pre></div></div>
+<span id="cb3-39">  )</span></code></pre></div></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Perhaps most telling is the relationship between his usage rate (an advanced stat estimating the percentage of a team’s plays a player “uses” while on the court, showing their offensive responsibility and how much they dominate the ball) and player efficiency rating (an advanced statistic that summarizes a player’s per-minute production into a single number, adjusting for pace and league averages). When we plot these variables against each other, Johnson doesn’t follow the typical pattern of declining efficiency with increased usage. Instead, he’s managed to scale his production without sacrificing his effectiveness, a hallmark of players who possess genuine star-level talent.</p>
+<p>This season, Johnson is in some elite company, being as efficient as some of the NBA’s biggest stars that have played at least 20 games like Nikola Jokic, Shai-Gilgeous Alexander, James Harden, and Donovan Mithcell. Not too shabby.</p>
+<p>However, context matters enormously in the NBA, and Johnson’s situation in Atlanta provides plenty of it. The Hawks have dealt with injuries, roster turnover, and a general lack of star power in recent seasons. Johnson has gone from a raw prospect fighting for minutes to a featured player in an offense that needs someone, anyone, to step up and carry the load.</p>
+<p>In conclusion, the data suggests Johnson is more than just an opportunity merchant, but he’s not quite an established elite player yet either. He occupies that fascinating middle ground: a player with legitimate star tools who has seized his opportunity and shown the ability to produce efficiently in an expanded role.</p>
+<p>The rest of this season will be telling. If Johnson can maintain his efficiency while drawing more defensive attention, potentially playing alongside a healthy Hawks roster with other scoring options, he’ll prove the doubters wrong. If his numbers regress when the easy opportunities dry up, the skeptics will have their answer.</p>
+<p>For now, Jalen Johnson sits in that exciting space where the answer to “How good is he really?” is “Let’s watch and find out.” And in a league always searching for the next star, that’s exactly where you want to be.</p>
 
 
 
@@ -1120,7 +1086,7 @@ font-style: inherit;">"plot"</span></span>
   <category>jalenjohnson</category>
   <guid>https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/</guid>
   <pubDate>Tue, 09 Dec 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player" medium="image"/>
+  <media:content url="https://your-website-url.example.com/posts/is-jalen-johnson-a-good-player/jalenjohnson.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Is Anthony Edwards as good of a shooter as we think? The difference between perception and reality.</title>

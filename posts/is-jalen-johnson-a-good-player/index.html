@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Jalen Johnson</p>
+<p>The Atlanta Hawks’ Jalen Johnson has emerged as one of the NBA’s most intriguing young forwards, posting career-best numbers that have turned heads across the league. But as his counting stats continue to climb, a critical question looms: Is Johnson truly developing into an elite player, or is he simply the beneficiary of increased opportunities in Atlanta’s system?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -263,6 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>The numbers tell a compelling story of genuine growth. When we examine Johnson’s per-36-minute statistics across his career, we see more than just volume increases, we see efficiency gains that suggest real skill development. Per 36 Minutes in the NBA refers to a statistic that projects a player’s counting stats (like points, rebounds, and assists) over the course of a 36-minute game. All three of these statistics for Johnson per 36 minutes have all trended upward, especially him scoring the ball.</p>
+<p>When comparing him to other top prospects from his draft class (Evan Mobley, Scottie Barnes, Josh Giddey, Jonathan Kuminga), Johnson is outperforming all of them this season. While they may have been scoring more to start their careers, Johnson has continued to get better and surpass them this season.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -319,6 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>The efficiency metrics paint an even more interesting picture. Johnson’s true shooting percentage (a basketball statistic that measures scoring efficiency by accounting for two-point field goals, three-point field goals, and free throws) has improved alongside his expanded role, a rare feat that separates stars from volume scorers. Many players see their efficiency crater when given more touches; Johnson has maintained or improved his shooting efficiency while dramatically increasing his offensive involvement. His effective field goal percentage (a basketball statistic that adjusts for the value of 3-point shots to give a more accurate measure of shooting efficiency than traditional field goal percentage) tells a similar story, indicating that he’s not just taking more shots, he’s taking better ones.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -334,9 +337,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    G <span class="sc">&gt;</span> <span class="dv">20</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER)) <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">method=</span><span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>filterednbausagerate <span class="ot">&lt;-</span> newnbausagerate <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    PER <span class="sc">&gt;</span> <span class="fl">23.3</span> <span class="sc">&amp;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      USGPCT <span class="sc">&gt;</span> <span class="fl">26.0</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>filterednbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">40.0</span>)) <span class="sc">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>filterednbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER, <span class="at">label=</span>Player)) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Usage Percentage"</span>, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Player Efficiency Rating"</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Jalen Johnson is in some elite company"</span>, </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Jalen Johnson has been as efficient as some of the league's best this season."</span>, </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Basketball Reference | By Aidan Thomas"</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -345,44 +372,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>filterednbausagerate <span class="ot">&lt;-</span> newnbausagerate <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    PER <span class="sc">&gt;</span> <span class="fl">23.3</span> <span class="sc">&amp;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      USGPCT <span class="sc">&gt;</span> <span class="fl">26.0</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>filterednbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>newnbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER), <span class="at">method=</span><span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">40.0</span>)) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>filterednbausagerate, <span class="fu">aes</span>(<span class="at">x=</span>USGPCT, <span class="at">y=</span>PER, <span class="at">label=</span>Player)) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Usage Percentage"</span>, </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Player Efficiency Rating"</span>, </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title=</span><span class="st">"Jalen Johnson is in some elite company"</span>, </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Jalen Johnson has been as efficient as some of the league's best this season."</span>, </span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption=</span><span class="st">"Source: Basketball Reference | By Aidan Thomas"</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>), </span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
+<p>Perhaps most telling is the relationship between his usage rate (an advanced stat estimating the percentage of a team’s plays a player “uses” while on the court, showing their offensive responsibility and how much they dominate the ball) and player efficiency rating (an advanced statistic that summarizes a player’s per-minute production into a single number, adjusting for pace and league averages). When we plot these variables against each other, Johnson doesn’t follow the typical pattern of declining efficiency with increased usage. Instead, he’s managed to scale his production without sacrificing his effectiveness, a hallmark of players who possess genuine star-level talent.</p>
+<p>This season, Johnson is in some elite company, being as efficient as some of the NBA’s biggest stars that have played at least 20 games like Nikola Jokic, Shai-Gilgeous Alexander, James Harden, and Donovan Mithcell. Not too shabby.</p>
+<p>However, context matters enormously in the NBA, and Johnson’s situation in Atlanta provides plenty of it. The Hawks have dealt with injuries, roster turnover, and a general lack of star power in recent seasons. Johnson has gone from a raw prospect fighting for minutes to a featured player in an offense that needs someone, anyone, to step up and carry the load.</p>
+<p>In conclusion, the data suggests Johnson is more than just an opportunity merchant, but he’s not quite an established elite player yet either. He occupies that fascinating middle ground: a player with legitimate star tools who has seized his opportunity and shown the ability to produce efficiently in an expanded role.</p>
+<p>The rest of this season will be telling. If Johnson can maintain his efficiency while drawing more defensive attention, potentially playing alongside a healthy Hawks roster with other scoring options, he’ll prove the doubters wrong. If his numbers regress when the easy opportunities dry up, the skeptics will have their answer.</p>
+<p>For now, Jalen Johnson sits in that exciting space where the answer to “How good is he really?” is “Let’s watch and find out.” And in a league always searching for the next star, that’s exactly where you want to be.</p>
 
 
 
